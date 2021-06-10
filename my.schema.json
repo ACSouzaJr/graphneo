@@ -1,0 +1,25 @@
+schema {
+    query: Query
+}
+
+type Company {
+  id: ID
+  name: String
+  industry: String
+  employees: [Employee!]
+}
+
+type Employee {
+  id: ID
+  firstName: String
+  lastName: String
+  address: String
+  subordinates: [Employee!]
+  company: Company
+}
+
+type Query {
+  employee(id: ID): Employee
+  company(id: ID): Company
+  allCompanies: [Company!]
+}
